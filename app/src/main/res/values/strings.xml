@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyPassword</string>
+    <string name="test_to_git">Test to Git</string>
 </resources>
