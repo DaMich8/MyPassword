@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,49 +8,50 @@
     tools:context=".LoginActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:src="@drawable/red"
-        app:layout_constraintHeight_percent=".27"
         android:scaleType="centerCrop"
-        app:layout_constraintVertical_bias="0"
+        android:src="@drawable/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-    
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent=".78"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".27"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/white">
+        app:layout_constraintVertical_bias="0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/vie_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/lVIewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".7"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/lTabLayout"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/lTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/lVIewPager"
+            app:layout_constraintVertical_bias="0" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/lFloatingButtonGoogle"
@@ -58,7 +60,8 @@
             android:backgroundTint="@color/white"
             android:elevation="35dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/google"
+            app:tint="@null"
+            app:srcCompat="@drawable/google"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/lVIewPager"
             app:layout_constraintHorizontal_bias="0.41"
@@ -70,8 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
+            app:tint="@null"
             android:src="@drawable/facebook"
-            android:elevation="35dp"
+            android:elevation="45dp"
             app:layout_constraintHorizontal_bias="0"
             android:layout_marginLeft="65dp"
             android:layout_marginBottom="20dp"
@@ -80,7 +84,32 @@
             app:layout_constraintStart_toStartOf="@id/lFloatingButtonGoogle"
             app:layout_constraintEnd_toEndOf="@id/lVIewPager"
             />
-
         ></androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/icon"
+        app:layout_constraintBottom_toTopOf="@+id/lConstraint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:tint="@null" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASSWORD IN ONE PLACE"
+        android:textColor="#f8baba"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lConstraint"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
