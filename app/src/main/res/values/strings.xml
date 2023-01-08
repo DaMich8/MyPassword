@@ -2,4 +2,9 @@
     <string name="app_name">MyPassword</string>
     <string name="test_to_git">Test to Git</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Signinwithgoogle">Sign Up With Google</string>
+    <string name="icon">Icon</string>
+    <string name="password_in_one_place">PASSWORD IN ONE PLACE</string>
+    <string name="sign_in_with_google">Sign in with google</string>
+    <string name="background">Background</string>
 </resources>
