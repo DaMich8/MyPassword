@@ -48,7 +48,21 @@ public class Database extends SQLiteOpenHelper
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase DataBse, int i, int i1) {
-        DataBse.execSQL(DROP_USER_TABLE);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(DROP_USER_TABLE);
+
+    }
+
+    public void addUser(User user)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_USER_USERNAME, user.getUsername());
+        values.put(COLUMN_USER_EMAIL, user.getEmail());
+        values.put(COLUMN_USER_PASSWORD, user.getPassword());
+
+        db.insert(TABLE_USER, null, values);
+        db.close();
     }
 }
