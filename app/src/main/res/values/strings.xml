@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">MyPassword</string>
+    <string name="empty_err_msg">Field cannot be empty!</string>
+    <string name="email_err_msg">email must contain this format: XXX@XXX.XXX</string>
+    <string name="passwordNotMatch_err_msg">Password doesn\'t match </string>
+    <string name="usernameExists_err_msg">this username is in use</string>
+    <string name="emailExists_err_msg">this email is in use</string>
     <string name="test_to_git">Test to Git</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Signinwithgoogle">Sign Up With Google</string>
