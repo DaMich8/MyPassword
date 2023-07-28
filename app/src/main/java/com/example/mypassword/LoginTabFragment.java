@@ -4,34 +4,29 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 public class LoginTabFragment extends Fragment {
-    EditText username, password;
-    TextView fPassword;
-    AppCompatButton login;
-    float alphaConstant=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_login_tab, container, false);
+        View root = inflater.inflate(R.layout.fragment_login_tab, container, false);
 
-        username = root.findViewById(R.id.lUsername);
-        password = root.findViewById(R.id.lPassword);
-        fPassword = root.findViewById(R.id.lFPassword);
-        login = root.findViewById(R.id.lLoginButton);
+        EditText username = root.findViewById(R.id.lUsername);
+        EditText password = root.findViewById(R.id.lPassword);
+        TextView fPassword = root.findViewById(R.id.lFPassword);
+        AppCompatButton login = root.findViewById(R.id.lLoginButton);
 
         username.setTranslationX(800);
         password.setTranslationX(800);
         fPassword.setTranslationX(800);
         login.setTranslationX(800);
 
+        float alphaConstant = 0;
         username.setAlpha(alphaConstant);
         password.setAlpha(alphaConstant);
         fPassword.setAlpha(alphaConstant);
