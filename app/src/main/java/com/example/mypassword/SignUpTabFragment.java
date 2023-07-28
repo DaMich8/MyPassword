@@ -1,13 +1,16 @@
 package com.example.mypassword;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import androidx.appcompat.widget.AppCompatButton;
+import android.widget.Toast;
 
 import com.example.mypassword.database.Database;
 import com.example.mypassword.database.User;
@@ -24,26 +27,24 @@ public class SignUpTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_sign_up_tab, container, false);
 
+        initializeViews(root);
+
+        database = new Database(getContext());
+        user = new User();
+
+        registerNewUser.setOnClickListener(v -> postDataToSQLite());
+        return root;
+    }
+
+    private void initializeViews(ViewGroup root) {
         username = root.findViewById(R.id.sUsername);
         email = root.findViewById(R.id.sEmail);
         password = root.findViewById(R.id.sPassword);
         rPassword = root.findViewById(R.id.sRepeatPassword);
         registerNewUser = root.findViewById(R.id.sSignUpButton);
-
-        database = new Database(getContext());
-        user = new User();
-
-        registerNewUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                postDataToSQLite();
-            }
-        });
-
-        return root;
     }
 
-    public void postDataToSQLite() {
+    private void postDataToSQLite() {
         if (!checkAllEditTextNotEmpty()) {
             return;
         }
@@ -82,24 +83,23 @@ public class SignUpTabFragment extends Fragment {
     }
 
     private boolean checkAllEditTextNotEmpty() {
-        boolean check = true;
         if (isEmpty(username)) {
             setError(username, getString(R.string.empty_err_msg));
-            check = false;
+            return false;
         }
         if (isEmpty(email)) {
             setError(email, getString(R.string.empty_err_msg));
-            check = false;
+            return false;
         }
         if (isEmpty(password)) {
             setError(password, getString(R.string.empty_err_msg));
-            check = false;
+            return false;
         }
         if (isEmpty(rPassword)) {
             setError(rPassword, getString(R.string.empty_err_msg));
-            check = false;
+            return false;
         }
-        return check;
+        return true;
     }
 
     private boolean isEmpty(EditText editText) {

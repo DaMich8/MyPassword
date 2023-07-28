@@ -10,27 +10,20 @@ public class EnteredFieldsChecking {
                 + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
                 + "A-Z]{2,7}$";
 
-        Pattern pat = Pattern.compile(emailRegex);
-        if (email == null) {
-            return false;
-        }
-        return pat.matcher(email).matches();
+        Pattern pattern = Pattern.compile(emailRegex);
+        return email != null && pattern.matcher(email).matches();
     }
 
-    public boolean passwordIsValid(String email) {
-        String passwordRegex ="^" +
-                "(?=.*[0-9])" +         //at least 1 digit
-                "(?=.*[a-z])" +         //at least 1 lower case letter
-                "(?=.*[A-Z])" +         //at least 1 upper case letter
-                "(?=.*[a-zA-Z])" +      //any letter
-                //"(?=.*[@#$%^&+=])" +    //at least 1 special character
-                "(?=\\S+$)" +           //no white spaces
-                ".{6,}" +               //at least 4 characters
-                "$";
-        Pattern pat = Pattern.compile(passwordRegex);
-        if (email == null) {
-            return false;
-        }
-        return pat.matcher(email).matches();
+    public static boolean passwordIsValid(String password) {
+        String passwordRegex = "^(?=.*[0-9])" +         // at least 1 digit
+                "(?=.*[a-z])" +         // at least 1 lower case letter
+                "(?=.*[A-Z])" +         // at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      // any letter
+                //"(?=.*[@#$%^&+=])" +    // at least 1 special character
+                "(?=\\S+$)" +           // no white spaces
+                ".{6,}";                // at least 6 characters
+
+        Pattern pattern = Pattern.compile(passwordRegex);
+        return password != null && pattern.matcher(password).matches();
     }
 }

@@ -9,12 +9,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class LoginAdapter extends FragmentPagerAdapter {
 
-    private final Context context;
-    int totalTabs;
+    private final int totalTabs;
 
-    public LoginAdapter(FragmentManager fragmentManager, Context context, int totalTabs){
+    public LoginAdapter(FragmentManager fragmentManager, Context context, int totalTabs) {
         super(fragmentManager);
-        this.context = context;
         this.totalTabs = totalTabs;
     }
 
@@ -25,8 +23,7 @@ public class LoginAdapter extends FragmentPagerAdapter {
 
     @NonNull
     @Override
-    public Fragment getItem(int position)
-    {
+    public Fragment getItem(int position) {
         switch (position) {
             case 0:
                 return new LoginTabFragment();
